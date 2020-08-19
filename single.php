@@ -9,7 +9,7 @@
 
 			<article <?php post_class(); ?>>
 
-				<?php the_post_thumbnail('banner'); //featured image ?>
+				<?php the_post_thumbnail('large'); //featured image - choose 'thumbnail', 'medium', or 'large' ?>
 
 				<h2 class="entry-title">
 					<a href="<?php the_permalink(); ?>">
@@ -17,7 +17,7 @@
 					</a>
 				</h2>
 				<div class="entry-content">
-					<?php the_excerpt(); //just a snippet of the content ?>
+					<?php the_content(); ?>
 				</div>
 				<div class="postmeta">
 					<span class="author">by: <?php the_author(); ?> </span>

@@ -474,7 +474,7 @@ img {
 /*----------------end milligramish styles--------------------*/
 
 .site{
-    background-color: rgba(255,255,255,.4);
+    background-color: rgba(255,255,255,.6);
 }
 
 /*
@@ -483,10 +483,13 @@ img {
 .header{
     background: #D9DDDB;
     color:#484646;
+    background-size: cover;
+    background-position: center center;
 }
 /* special tall header on front page */
 .home .header .branding{
-    min-height: 80vh;
+    padding:15vh 0;
+    text-align: center;
 }
 .header a{
     color:inherit;
@@ -508,12 +511,16 @@ img {
     text-transform: uppercase;
     letter-spacing: normal;
 }
+.custom-logo-link img{
+    width:5em;
+    height:auto;
+}
 
 /*
 == navigation menu
 */
 .navigation{
-    background-color:rgba(255,255,255,.4);
+    background-color:rgba(255,255,255,.8);
 }
 .navigation ul{
     list-style-type: none;
@@ -931,8 +938,15 @@ check for browsers that support grid
         .header{
             grid-template-columns: 2fr 1fr  1fr;
             grid-template-areas:   
-            "branding     search     utilities"
+            "branding      utilities  search"
             "navigation   navigation navigation";
+        }
+        .home.page .header{
+            grid-template-columns: 1fr  1fr;
+            grid-template-areas:   
+            "utilities search"
+            "branding branding"
+            "navigation navigation";
         }
 
         .branding{

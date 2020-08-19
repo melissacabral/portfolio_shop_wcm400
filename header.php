@@ -8,7 +8,7 @@
 
 	<?php wp_head(); //HOOK. required for the admin bar and plugins to work ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 	<div class="site">
 		<header class="header">
 			<div class="branding">

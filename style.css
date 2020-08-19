@@ -484,6 +484,10 @@ img {
     background: #D9DDDB;
     color:#484646;
 }
+/* special tall header on front page */
+.home .header .branding{
+    min-height: 80vh;
+}
 .header a{
     color:inherit;
 }
@@ -534,13 +538,19 @@ img {
 }
 .navigation li a{
     color:#4C545B;
-
     display:block;
     padding:.5em 1em;
 }
 .navigation li a:hover{
     background-color: #E7452A;
     color:white;
+}
+.navigation .current_page_item a{
+    background-color: #E7452A;
+    color:white;
+}
+.current-cat a{
+     color:#4C545B;
 }
 /*
 == Search bar
@@ -607,7 +617,11 @@ img {
     float: right;
     margin:0 0 .5em .5em;
 }
-
+/* example of using post class */
+.sticky{
+    background-color: beige;
+    padding:2%;
+}
 
 
 /* 
@@ -631,6 +645,119 @@ img {
   padding: 0;
   margin:0;
 }
+
+/* 
+== WordPress Core
+https://codex.wordpress.org/CSS#WordPress_Generated_Classes
+*/
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+    background-color: #eee;
+    clip: auto !important;
+    clip-path: none;
+    color: #444;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */
+}
+
 /* 
 == Sidebar 
 */
@@ -792,7 +919,8 @@ check for browsers that support grid
         .post-type-archive-work .site,
         .tax-work_category .site,
         .single-work .site,
-        .home.page .site{
+        .home.page .site,
+        .page .site{
             grid-template-columns:   1fr;
             grid-template-areas:    
             "header"

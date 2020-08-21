@@ -64,20 +64,64 @@ add_filter( 'excerpt_more', 'mmc_readmore' );
 function mmc_footer_text(){
 	echo 'Hello this is the footer action hook';
 }
-add_action( 'wp_footer', 'mmc_footer_text' );
+//add_action( 'wp_footer', 'mmc_footer_text' );
 
 //example using simply show hooks
 function mmc_breadcrumb(){
 	echo 'these are breadcrumbs...mmm...';
 }
-add_action( 'loop_start', 'mmc_breadcrumb' );
-
-
+//add_action( 'loop_start', 'mmc_breadcrumb' );
 
 
 //better comment form UX
 function mmc_commentreply(){
-	wp_enqueue_script( 'comment-reply' );
+	if(comments_open() && is_singular()){
+		wp_enqueue_script( 'comment-reply' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'mmc_commentreply' );
+
+//Activate all menu areas for the site
+add_action( 'init', 'mmc_menu_areas' );
+function mmc_menu_areas(){
+	register_nav_menus( array(
+		'main_menu' => 'Main Menu',
+		'social_icons' => 'Social Media Icons',
+	) );
+}
+
+
+//Register any Widget Areas we will need
+add_action('widgets_init', 'mmc_widget_areas');
+function mmc_widget_areas(){
+	register_sidebar( array(
+		'name'			=> 'Blog Sidebar',
+		'id'			=> 'blog_sidebar',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</section>',
+		'before_title'	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	) );
+	register_sidebar( array(
+		'name'			=> 'Footer Area',
+		'id'			=> 'footer_area',
+		'description'	=> 'Appears at the bottom of every screen',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</section>',
+		'before_title'	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	) );
+	register_sidebar( array(
+		'name'			=> 'Home Page Area',
+		'id'			=> 'home-area',
+		'description'	=> 'An area to feature 3 highlights on the front page',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</section>',
+		'before_title'	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	) );
+}
+
+
+
 //no close php

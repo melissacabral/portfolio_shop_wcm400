@@ -1,5 +1,8 @@
 		<footer class="footer">
-			<div class="widget">Footer content goes here</div>
+			<?php 
+			//Widget Area
+			dynamic_sidebar( 'Footer Area' ); 
+			?>	
 		</footer>
 	</div>
 

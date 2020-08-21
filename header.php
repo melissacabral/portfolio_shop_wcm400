@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>">
-
 	<?php wp_head(); //HOOK. required for the admin bar and plugins to work ?>
+	
 </head>
 <body <?php body_class(); ?>>
 	<div class="site">
@@ -24,18 +25,18 @@
 
 			</div>
 			<div class="navigation">
-				<nav class="main-menu">
-					<ul>
-						<?php 
-						wp_list_pages( array(
-							'title_li' => '',
-						) ); 
-						?>
-					</ul>
-				</nav>
+				<?php wp_nav_menu( array(
+					'theme_location' 	=> 'main_menu',
+					'container'			=> 'nav', //or div
+					'container_class' 	=> 'main-menu',
+				) ); ?>
 			</div>
 			<div class="utilities">
-				<!-- Utility menu will go here -->
+				<?php wp_nav_menu( array(
+					'theme_location' 	=> 'social_icons',
+					'fallback_cb' 		=> false,  //no fallback menu
+					'container_class'	=> 'social-navigation',
+				) ); ?>
 			</div>
 			<?php get_search_form(); ?>
 

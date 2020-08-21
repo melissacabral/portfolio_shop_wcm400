@@ -18,6 +18,10 @@
 				</h2>
 				<div class="entry-content">
 					<?php the_content(); ?>
+					<?php 
+					//supports "multi-paged posts"
+					wp_link_pages(); 
+					?>
 				</div>
 				<div class="postmeta">
 					<span class="author">by: <?php the_author(); ?> </span>
@@ -29,6 +33,12 @@
 				<!-- end .postmeta -->
 			</article>
 			<!-- end .post -->
+
+			<div class="pagination">
+				<?php previous_post_link( '%link', '&larr; Previous: %title' ); ?>
+				<?php next_post_link( '%link', 'Next: %title &rarr;' ); ?>
+			</div>
+
 
 			<?php comments_template(); ?>
 

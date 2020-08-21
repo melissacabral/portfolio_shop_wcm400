@@ -528,9 +528,8 @@ img {
     padding:0;
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;     
     text-align: center;
-
 }
 .navigation li{
     margin:0;

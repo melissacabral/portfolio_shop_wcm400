@@ -34,6 +34,14 @@
 
 			<?php 
 				} //end while
+			?>
+			<div class="pagination">
+				<?php previous_posts_link( '&larr; Newer Posts' ); ?>
+				<?php next_posts_link( 'Older Posts &rarr;' ); ?>
+
+				<?php //the_posts_pagination(); ?>
+			</div>
+			<?php
 			}else{ ?>
 
 				<h2>No Posts to show</h2>

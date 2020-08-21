@@ -1,4 +1,8 @@
 <aside class="sidebar">
+	<?php 
+	//show the widget area if it contains widgets, otherwise do fallback
+	if( ! dynamic_sidebar( 'Blog Sidebar' ) ){ ?>
+
 	<section id="categories" class="widget">
 		<h3 class="widget-title"> Categories </h3>
 		<ul>
@@ -35,5 +39,6 @@
 			<li><?php wp_loginout(); ?></li>
 		</ul>
 	</section>
+	<?php } //end if there are no widgets ?>
 </aside>
 		<!-- end .sidebar -->

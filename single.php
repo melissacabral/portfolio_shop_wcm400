@@ -40,7 +40,7 @@
 			</div>
 
 
-			<?php comments_template(); ?>
+			<?php comments_template();  //include comments.php ?>
 
 			<?php 
 				} //end while

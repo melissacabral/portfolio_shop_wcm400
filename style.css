@@ -7,7 +7,10 @@ Author URI: http://melissacabral.com
 Version: 0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
-Tags: Grid Layout, Portfolio, Blog, E-Commerce
+Tags:  Portfolio, Blog, E-Commerce
+Text Domain: portfolio-shop-wcm400
+Tested up to: 5.5
+Requires PHP: 5.2.4
 
 ------------------
 TABLE OF CONTENTS
@@ -201,7 +204,6 @@ code {
     font-size: 90%;
     margin: 0 .2em;
     padding: .2em .5em;
-    white-space: nowrap;
 }
 
 pre {
@@ -613,7 +615,7 @@ img {
     margin:0 auto;
 }
 .content, .sidebar{
-    padding:5% 5% 10%;
+    padding:2.5em ;
 }
 .content .hentry{
     margin:0 0 4em;
@@ -652,10 +654,15 @@ img {
   margin:0;
 }
 
+.format-gallery{
+    background-color:tan;
+}
+
 /* 
 == WordPress Core
 https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 */
+
 .alignnone {
     margin: 5px 20px 20px 0;
 }
@@ -696,7 +703,7 @@ a img.aligncenter {
     margin-right: auto;
 }
 
-.wp-caption {
+.wp-caption, .gallery-caption {
     background: #fff;
     border: 1px solid #f0f0f0;
     max-width: 96%; /* Image does not overflow the content area */
@@ -730,6 +737,10 @@ a img.aligncenter {
     line-height: 17px;
     margin: 0;
     padding: 0 4px 5px;
+}
+
+.bypostauthor{
+    background-color: beige;
 }
 
 /* Text meant only for screen readers. */
@@ -775,13 +786,7 @@ a img.aligncenter {
     list-style-type: none;
     padding:0;
 }
-.sidebar .widget{
-    max-width:20em;
-    margin:  3em 0;
-}
-.page .sidebar .widget{
-    max-width: none;
-}
+
 /* 
 == Footer
 */
@@ -793,12 +798,37 @@ a img.aligncenter {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+/*
+== widget areas
+ */
+.sidebar .widget{
+    max-width:20em;
+    margin:  3em 0;
+}
+.page .sidebar .widget{
+    max-width: none;
+}
+.home .sidebar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom:3em;
+}
+.home .sidebar .widget{
+    width: 30%;
+    margin:1em 1.5%;
+    max-width: 300px;
+    min-width: 100px;
+    background-color: #eee;
+    text-align: center;
+    padding:2.5em 1em;
+}
 .footer .widget{
     padding:2em 1em;
     flex-basis: 0;
     flex-grow: 1;
 }
-
 
 
 /* 

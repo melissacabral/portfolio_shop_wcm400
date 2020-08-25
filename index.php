@@ -17,7 +17,15 @@
 					</a>
 				</h2>
 				<div class="entry-content">
-					<?php the_excerpt(); //just a snippet of the content ?>
+					<?php 
+					//if it's a special post format, show full content, otherwise show excerpt
+					if( has_post_format( array( 'gallery', 'image' ) ) ){
+						the_content(); //full content
+					}else{
+						the_excerpt(); //just a snippet of the content 
+					}
+					
+					?>
 				</div>
 				<div class="postmeta">
 					<span class="author">by: <?php the_author(); ?> </span>

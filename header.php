@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html <?php language_attributes(); ?>>
 <head>
 
 	<meta charset="utf-8">
@@ -9,6 +9,8 @@
 	
 </head>
 <body <?php body_class(); ?>>
+ <?php wp_body_open(); ?>
+ 
 	<div class="site">
 		<header class="header" style="background-image: url(<?php header_image(); ?>); color:#<?php header_textcolor(); ?>">
 			<div class="branding">
@@ -16,7 +18,7 @@
 				
 				<?php if( display_header_text()){ ?>
 				<h1 class="site-title">
-					<a href="<?php echo home_url(); ?>">
+					<a href="<?php echo esc_url( home_url() ); ?>">
 						<?php bloginfo( 'name' ); ?>
 					</a>
 				</h1>

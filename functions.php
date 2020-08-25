@@ -1,4 +1,7 @@
 <?php
+//max width of auto-embeds (youtube, insta, twitter, etc)
+if ( ! isset( $content_width ) ) $content_width = 500;
+
 //activate sleeping features
 add_theme_support( 'custom-background' );
 
@@ -122,6 +125,41 @@ function mmc_widget_areas(){
 	) );
 }
 
+
+//Count all real comments on a post
+add_filter( 'get_comments_number', 'sc_comments_count' );
+function sc_comments_count(){
+	//post id
+	global $id;
+	$comments = get_approved_comments( $id );
+	$count = 0;
+	
+	//go through the comments array, counting each real comment
+	foreach( $comments AS $comment ){
+		if( $comment->comment_type == 'comment' ){
+			$count ++;
+		}
+	}
+	return $count;
+}
+
+//Count all the trackbacks and pingbacks on a post
+
+function sc_pings_count(){
+	//post id
+	global $id;
+	$comments = get_approved_comments( $id );
+	$count = 0;
+
+	//go through the comments array, counting each real comment
+	foreach( $comments AS $comment ){
+		if( $comment->comment_type != 'comment' ){
+			$count ++;
+		}
+	}
+
+	return $count;
+}
 
 
 //no close php

@@ -16,8 +16,18 @@
 							<?php the_title(); ?>
 						</a>
 					</h2>
+					<h3><?php the_field('subtitle'); ?></h3>
 				</div>
 				<div class="entry-content">
+					<?php 
+					if(get_field('client')){
+					?>
+					
+					<p>
+						Client: <?php the_field('client'); ?>
+					</p>
+					<?php } //end if client ?>
+
 					<?php the_content(); ?>
 					<?php 
 					//supports "multi-paged posts"

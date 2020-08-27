@@ -22,6 +22,10 @@
 				</div>
 				<div class="entry-content">
 					<?php 
+					//show all the portfolio categories for this piece (taxonomy demo)
+					the_terms( $post->ID, 'portfolio_category', '<h4>', ', ', '</h4>' ); ?>
+
+					<?php 
 					if(get_field('client')){
 					?>
 					

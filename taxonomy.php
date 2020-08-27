@@ -5,7 +5,7 @@
 			if( have_posts() ){	
 				?>
 
-				<h1 class="page-heading"><?php post_type_archive_title(); ?></h1>
+				<h1 class="page-heading">Portfolio</h1>
 
 				<ul class="portfolio-subnav">
 					<?php wp_list_categories( array(
@@ -13,7 +13,7 @@
 						'title_li'	=> '',
 					) ); ?>
 				</ul>
-
+				
 				<?php
 				while( have_posts() ){	
 					the_post();

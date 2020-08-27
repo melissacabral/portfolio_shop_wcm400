@@ -73,7 +73,7 @@ function mmc_footer_text(){
 function mmc_breadcrumb(){
 	echo 'these are breadcrumbs...mmm...';
 }
-//add_action( 'loop_start', 'mmc_breadcrumb' );
+// add_action( 'loop_start', 'mmc_breadcrumb' );
 
 
 //better comment form UX

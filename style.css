@@ -1009,7 +1009,7 @@ check for browsers that support grid
         }
         /*special 1-column pages*/
         .post-type-archive-work .site,
-        .tax-work_category .site,
+        .tax-portfolio_category .site,
         .single-work .site,
         .home.page .site,
         .page .site{

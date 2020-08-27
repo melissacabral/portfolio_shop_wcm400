@@ -553,7 +553,8 @@ img {
     background-color: #E7452A;
     color:white;
 }
-.navigation .current_page_item a{
+.navigation .current_page_item a,
+.navigation .current-menu-item a{
     background-color: #E7452A;
     color:white;
 }
@@ -625,16 +626,20 @@ img {
     float: right;
     margin:0 0 .5em .5em;
 }
+
+.page-heading{
+    text-align: center;
+    margin:1em auto 2em;
+}
+
+/* 
+== Post content
+*/
 /* example of using post class */
 .sticky{
     background-color: beige;
     padding:2%;
 }
-
-
-/* 
-== Post content
-*/
 .postmeta {
     clear:both;
     border-top:solid 3px #DDE0E1;
@@ -654,10 +659,61 @@ img {
   margin:0;
 }
 
-.format-gallery{
-    background-color:tan;
+
+.overlay{
+    position:relative;
+    overflow:hidden;
+    line-height: 0;
+    font-size: 0;
+    margin-bottom: 3rem;
+}
+.overlay .info{
+    line-height: 1;
+    font-size:1rem;
+    background-color:rgba(0,0,0,.4);
+    position: absolute;
+    top:0%;
+    left:0;
+    width:100%;
+    height:100%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+      color:white;
+}
+.overlay .entry-title, .overlay h3 {
+    margin:0;
+    padding:0;
+  
+}
+.overlay a{
+    color:inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 120%;
+    letter-spacing: normal;
 }
 
+.has-drop-cap{
+    max-width:30em;
+    margin-left:auto;
+    margin-right:auto;
+    font-size: 120%;
+}
+p.has-drop-cap:not(:focus):first-letter {
+    float: left;
+    font-size: 6em;
+    line-height: .68;
+    font-weight: normal;
+    margin: .05em .1em 0 0;
+    text-transform: uppercase;
+    font-style: normal;
+    color:tomato;
+    font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
 /* 
 == WordPress Core
 https://codex.wordpress.org/CSS#WordPress_Generated_Classes

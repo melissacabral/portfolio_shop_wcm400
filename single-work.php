@@ -11,12 +11,14 @@
 				<div class="overlay">
 					<?php the_post_thumbnail('banner');  ?>
 
-					<h2 class="entry-title">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_title(); ?>
-						</a>
-					</h2>
-					<h3><?php the_field('subtitle'); ?></h3>
+					<div class="info">
+						<h2 class="entry-title">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_title(); ?>
+							</a>
+						</h2>
+						<h3><?php the_field('subtitle'); ?></h3>
+					</div>
 				</div>
 				<div class="entry-content">
 					<?php 

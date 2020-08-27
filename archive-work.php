@@ -1,47 +1,49 @@
 <?php get_header(); //requires header.php ?>
-		<main class="content">
+<main class="content">
 
 			<?php //The Loop
 			if( have_posts() ){	
-			?>
+				?>
 
-			<h1 class="page-heading"><?php post_type_archive_title(); ?></h1>
+				<h1 class="page-heading"><?php post_type_archive_title(); ?></h1>
 
-			<?php
+				<?php
 				while( have_posts() ){	
 					the_post();
-			?>
+					?>
 
-			<article <?php post_class(); ?>>
-				<div class="overlay">
-				
-					<?php the_post_thumbnail('banner'); //featured image ?>
+					<article <?php post_class(); ?>>
+						<div class="overlay">
+							
+							<?php the_post_thumbnail('banner'); //featured image ?>
+							<div class="info">
+								<h2 class="entry-title">
+									<a href="<?php the_permalink(); ?>">
+										<?php the_title(); ?>
+									</a>
+								</h2>
+								<div class="entry-content">
+									<?php the_excerpt(); //just a snippet of the content ?>
+								</div>
+							</div>
+						</div>
+						
+						
+					</article>
+					<!-- end .post -->
 
-					<h2 class="entry-title">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_title(); ?>
-						</a>
-					</h2>
-				</div>
-				<div class="entry-content">
-					<?php the_excerpt(); //just a snippet of the content ?>
-				</div>
-				
-			</article>
-			<!-- end .post -->
+					<?php comments_template(); ?>
 
-			<?php comments_template(); ?>
-
-			<?php 
+					<?php 
 				} //end while
-			?>
-			<div class="pagination">
-				<?php previous_posts_link( '&larr; Newer Posts' ); ?>
-				<?php next_posts_link( 'Older Posts &rarr;' ); ?>
+				?>
+				<div class="pagination">
+					<?php previous_posts_link( '&larr; Newer Posts' ); ?>
+					<?php next_posts_link( 'Older Posts &rarr;' ); ?>
 
-				<?php //the_posts_pagination(); ?>
-			</div>
-			<?php
+					<?php //the_posts_pagination(); ?>
+				</div>
+				<?php
 			}else{ ?>
 
 				<h2>No Posts to show</h2>
@@ -51,5 +53,5 @@
 		</main>
 		<!-- end .content -->
 		
-	
-<?php get_footer();  //require footer.php ?>
+		
+		<?php get_footer();  //require footer.php ?>

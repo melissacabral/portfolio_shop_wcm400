@@ -39,6 +39,13 @@
 					'fallback_cb' 		=> false,  //no fallback menu
 					'container_class'	=> 'social-navigation',
 				) ); ?>
+
+
+
+				<a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"> 
+					<?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> - <?php echo WC()->cart->get_cart_total(); ?>
+				</a>
+
 			</div>
 			<?php get_search_form(); ?>
 

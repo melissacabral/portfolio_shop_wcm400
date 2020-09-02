@@ -213,5 +213,29 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	return $fragments;
 }
 
+//remove  woocommerce stylesheets
+// Remove each style one by one
+add_filter( 'woocommerce_enqueue_styles', 'jk_dequeue_styles' );
+function jk_dequeue_styles( $enqueue_styles ) {
+	//unset( $enqueue_styles['woocommerce-general'] );	// Remove the gloss
+	//unset( $enqueue_styles['woocommerce-layout'] );		// Remove the layout
+	//unset( $enqueue_styles['woocommerce-smallscreen'] );	// Remove the smallscreen optimisation
+	return $enqueue_styles;
+}
+
+
+//example of modifying woocommerce page with hooks
+//
+add_action('woocommerce_before_checkout_form', 'mmc_example', 5);
+
+function mmc_example(){
+	echo 'Something here!';
+}
+
+//example of using hooks to customize instead of a template
+add_action('after_setup_theme', 'mmc_unhook');
+function mmc_unhook(){
+	 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+}
 
 //no close php

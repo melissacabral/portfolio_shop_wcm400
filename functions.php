@@ -78,7 +78,7 @@ function mmc_breadcrumb(){
 
 //better comment form UX
 function mmc_commentreply(){
-	if(comments_open() && is_singular()){
+	if( get_post() AND comments_open() AND is_singular()){
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
@@ -236,6 +236,16 @@ function mmc_example(){
 add_action('after_setup_theme', 'mmc_unhook');
 function mmc_unhook(){
 	 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+}
+
+//Example of how to modify the built-in queries
+//Change the number of posts on search results
+add_action( 'pre_get_posts', 'mmc_change_queries' );
+function mmc_change_queries( $query ){
+	if( is_search() AND $query->is_main_query() ){
+		$query->set( 'posts_per_page',  20 );
+		$query->set( 'post_type', 'post' );
+	}
 }
 
 //no close php
